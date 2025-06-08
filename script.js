@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const currentCount = document.getElementById('currentCount');
     
-    let visibleItems = 24;
+    let visibleItems = 12; // Changed from 24 to 12
     let currentFilter = 'all';
     
     // Only run if gallery elements exist
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Load more functionality
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener('click', function() {
-                visibleItems += 24;
+                visibleItems += 12; // Changed from 24 to 12
                 showMoreItems();
                 updateCounter();
                 
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function resetLoadMore() {
-            visibleItems = 24;
+            visibleItems = 12; // Changed from 24 to 12
             if (loadMoreBtn) {
                 loadMoreBtn.style.display = 'block';
             }
