@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load gallery from JSON
     async function loadGallery() {
         try {
-            const response = await fetch('_content/gallery.json');
+            // Use relative path that works with GitHub Pages subdirectory
+            const response = await fetch('./_content/gallery.json');
             const data = await response.json();
 
             // Clear existing gallery
@@ -135,7 +136,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } catch (error) {
             console.error('Error loading gallery:', error);
-            // Fallback: keep existing hardcoded gallery if JSON fails to load
+            console.error('Failed to load gallery.json. Make sure the file exists at _content/gallery.json');
+            // Show message if gallery fails to load
+            if (galleryGrid) {
+                galleryGrid.innerHTML = '<p style="text-align: center; padding: 2rem; color: #8d6e63;">Loading gallery... If images don\'t appear, please refresh the page.</p>';
+            }
         }
     }
 
