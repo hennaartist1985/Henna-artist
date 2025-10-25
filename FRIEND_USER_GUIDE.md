@@ -24,23 +24,26 @@
 
 ### Step-by-Step:
 
-1. **Click "Gallery Images"** in the left sidebar
-2. **Click "New Gallery Image"** (top right)
-3. **Fill in the form:**
-   - **Title:** Give the image a name (e.g., "Beautiful Bridal Design")
-   - **Image:** Click "Choose an image" → Select your photo → Click "Upload"
-   - **Category:** Choose one:
-     - Bridal
-     - Arabic
-     - Traditional
-     - Modern
-     - Mandala
-     - Floral
-   - **Alt Text:** Brief description (e.g., "Intricate bridal henna on hands")
-   - **Publish Date:** Today's date (auto-filled)
+1. **Click "Site Content"** in the left sidebar
+2. **Click "Gallery Images"**
+3. **You'll see a list of all current gallery images**
+4. **To add a new image:**
+   - Scroll down to the bottom of the list
+   - Click **"Add Gallery Items"** button
+   - **Fill in the new item:**
+     - **Title:** Give the image a name (e.g., "Beautiful Bridal Design")
+     - **Image:** Click "Choose an image" → Select your photo → Click "Upload"
+     - **Category:** Choose one:
+       - bridal
+       - arabic
+       - traditional
+       - modern
+       - mandala
+       - floral
+     - **Alt Text:** Brief description (e.g., "Intricate bridal henna on hands")
 
-4. **Click "Publish"** (top right)
-5. **Done!** Your image will appear on the website in about 1 minute
+5. **Click "Publish"** (top right)
+6. **Done!** Your image will appear on the website in about 1-2 minutes
 
 ### Tips:
 - ✅ Upload high-quality JPG or PNG images
@@ -97,12 +100,11 @@ After clicking "Publish":
 
 ## 🗑️ How to Delete Gallery Images
 
-1. Click **"Gallery Images"**
-2. Find the image you want to delete
-3. Click on it
-4. Click **"Delete"** (top right)
-5. Confirm deletion
-6. Done!
+1. Click **"Site Content"** → **"Gallery Images"**
+2. Find the image you want to delete in the list
+3. Click the **X** button next to that item
+4. Click **"Publish"** to save changes
+5. Done!
 
 ---
 
@@ -155,9 +157,9 @@ After clicking "Publish":
 
 | What You Want to Do | Where to Go |
 |---------------------|-------------|
-| Upload new photo | Gallery Images → New Gallery Image |
-| Edit existing photo | Gallery Images → Click the photo → Edit |
-| Delete photo | Gallery Images → Click the photo → Delete |
+| Upload new photo | Site Content → Gallery Images → Add Gallery Items |
+| Edit existing photo | Site Content → Gallery Images → Click on the item → Edit |
+| Delete photo | Site Content → Gallery Images → Click X next to item |
 | Change main title | Site Content → Hero Section |
 | Update about text | Site Content → About Section |
 | Edit services | Site Content → Services |
