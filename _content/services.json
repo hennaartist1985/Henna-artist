@@ -1,0 +1,19 @@
+{
+  "services": [
+    {
+      "name": "Bridal Henna",
+      "description": "Exquisite bridal designs and wedding ring ceremony henna that celebrate your special day with stunning artistry.",
+      "icon": "💍"
+    },
+    {
+      "name": "Special Occasions",
+      "description": "Beautiful henna designs for Diwali, Karva Chauth, birthday parties, ladies parties, and Eid celebrations.",
+      "icon": "🎉"
+    },
+    {
+      "name": "Hand & Foot Art",
+      "description": "Professional henna services for special events, traditional styles, and temporary tattoo designs.",
+      "icon": "✨"
+    }
+  ]
+}

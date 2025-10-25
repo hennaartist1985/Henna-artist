@@ -1,0 +1,79 @@
+backend:
+  name: git-gateway
+  branch: main # Change to 'master' if your default branch is master
+
+# Netlify Identity for authentication
+site_url: https://hennaartist1985.github.io/Henna-artist/
+display_url: https://hennaartist1985.github.io/Henna-artist/
+
+# Media storage with Cloudinary
+media_library:
+  name: cloudinary
+  config:
+    cloud_name: dcdvcdpeg
+    api_key: 485197173868854
+
+# Content collections
+collections:
+  # Gallery Images Collection
+  - name: "gallery"
+    label: "Gallery Images"
+    folder: "_gallery"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Image", name: "image", widget: "image", media_library: {config: {multiple: false}}}
+      - {label: "Category", name: "category", widget: "select", options: ["bridal", "arabic", "traditional", "modern", "mandala", "floral"]}
+      - {label: "Alt Text", name: "alt", widget: "string", default: "Beautiful henna design"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+
+  # Site Content Collection
+  - name: "content"
+    label: "Site Content"
+    files:
+      # Hero Section
+      - label: "Hero Section"
+        name: "hero"
+        file: "_content/hero.json"
+        fields:
+          - {label: "Main Title", name: "title", widget: "string"}
+          - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - {label: "Hero Image", name: "image", widget: "image"}
+          - {label: "Primary Button Text", name: "primaryButton", widget: "string"}
+          - {label: "Secondary Button Text", name: "secondaryButton", widget: "string"}
+
+      # About Section
+      - label: "About Section"
+        name: "about"
+        file: "_content/about.json"
+        fields:
+          - {label: "About Image", name: "image", widget: "image"}
+          - {label: "About Text", name: "text", widget: "markdown"}
+          - {label: "Testimonial Quote", name: "testimonialQuote", widget: "text"}
+          - {label: "Testimonial Author", name: "testimonialAuthor", widget: "string"}
+
+      # Services
+      - label: "Services"
+        name: "services"
+        file: "_content/services.json"
+        fields:
+          - label: "Service List"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "Service Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "string"}
+
+      # Contact Information
+      - label: "Contact Info"
+        name: "contact"
+        file: "_content/contact.json"
+        fields:
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "WhatsApp", name: "whatsapp", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Address", name: "address", widget: "text"}
+          - {label: "Instagram Handle", name: "instagram", widget: "string"}
+          - {label: "Instagram URL", name: "instagramUrl", widget: "string"}
