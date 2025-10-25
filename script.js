@@ -99,8 +99,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load gallery from JSON
     async function loadGallery() {
         try {
-            // Use relative path that works with GitHub Pages subdirectory
-            const response = await fetch('./_content/gallery.json');
+            // Detect the base path for GitHub Pages vs Netlify
+            const basePath = window.location.pathname.includes('/Henna-artist/')
+                ? '/Henna-artist'
+                : '';
+            const galleryPath = `${basePath}/_content/gallery.json`;
+
+            console.log('Fetching gallery from:', galleryPath);
+            const response = await fetch(galleryPath);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
             const data = await response.json();
 
             // Clear existing gallery
@@ -118,7 +129,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 galleryItem.style.transition = 'all 0.6s ease';
 
                 const img = document.createElement('img');
-                img.src = item.image;
+                // Fix image path for GitHub Pages subdirectory
+                const imgPath = item.image.startsWith('http')
+                    ? item.image  // Cloudinary URL (absolute)
+                    : `${basePath}/${item.image}`;  // Local image (relative)
+                img.src = imgPath;
                 img.alt = item.alt || item.title;
 
                 galleryItem.appendChild(img);
