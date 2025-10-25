@@ -88,33 +88,77 @@ function openInstagram() {
 // Gallery filtering functionality
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const currentCount = document.getElementById('currentCount');
-    
-    let visibleItems = 12; // Changed from 24 to 12
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    let visibleItems = 12;
     let currentFilter = 'all';
-    
-    // Only run if gallery elements exist
-    if (filterButtons.length > 0 && galleryItems.length > 0) {
-        
-        // Filter functionality
+    let galleryItems = [];
+
+    // Load gallery from JSON
+    async function loadGallery() {
+        try {
+            const response = await fetch('_content/gallery.json');
+            const data = await response.json();
+
+            // Clear existing gallery
+            if (galleryGrid) {
+                galleryGrid.innerHTML = '';
+            }
+
+            // Create gallery items from JSON
+            data.items.forEach((item, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-category', item.category);
+                galleryItem.style.opacity = '0';
+                galleryItem.style.transform = 'translateY(30px)';
+                galleryItem.style.transition = 'all 0.6s ease';
+
+                const img = document.createElement('img');
+                img.src = item.image;
+                img.alt = item.alt || item.title;
+
+                galleryItem.appendChild(img);
+                galleryGrid.appendChild(galleryItem);
+
+                // Observe for animation
+                observer.observe(galleryItem);
+            });
+
+            // Update galleryItems reference
+            galleryItems = document.querySelectorAll('.gallery-item');
+
+            // Initialize gallery after loading
+            filterGallery('all');
+
+        } catch (error) {
+            console.error('Error loading gallery:', error);
+            // Fallback: keep existing hardcoded gallery if JSON fails to load
+        }
+    }
+
+    // Filter functionality - set up event listeners
+    if (filterButtons.length > 0) {
         filterButtons.forEach(button => {
             button.addEventListener('click', function() {
                 // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
                 // Add active class to clicked button
                 this.classList.add('active');
-                
+
                 const filter = this.getAttribute('data-filter');
                 currentFilter = filter;
-                
+
                 filterGallery(filter);
                 resetLoadMore();
             });
         });
-        
-        function filterGallery(filter) {
+    }
+
+    function filterGallery(filter) {
+        galleryItems = document.querySelectorAll('.gallery-item');
             galleryItems.forEach((item, index) => {
                 if (filter === 'all' || item.getAttribute('data-category') === filter) {
                     item.classList.remove('hidden');
@@ -149,49 +193,50 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        function showMoreItems() {
-            let count = 0;
-            galleryItems.forEach((item, index) => {
-                if (!item.classList.contains('hidden')) {
-                    if (count < visibleItems) {
-                        item.style.display = 'block';
-                        count++;
-                    } else {
-                        item.style.display = 'none';
-                    }
-                }
-            });
-        }
-        
-        function resetLoadMore() {
-            visibleItems = 12; // Changed from 24 to 12
-            if (loadMoreBtn) {
-                loadMoreBtn.style.display = 'block';
-            }
-            showMoreItems();
-        }
-        
-        function getTotalFilteredItems() {
-            if (currentFilter === 'all') {
-                return galleryItems.length;
-            } else {
-                return document.querySelectorAll(`[data-category="${currentFilter}"]`).length;
-            }
-        }
-        
-        function updateCounter() {
-            if (currentCount) {
-                const totalFiltered = getTotalFilteredItems();
-                const showing = Math.min(visibleItems, totalFiltered);
-                currentCount.textContent = showing;
-                const totalCountElement = document.getElementById('totalCount');
-                if (totalCountElement) {
-                    totalCountElement.textContent = totalFiltered;
+    function showMoreItems() {
+        galleryItems = document.querySelectorAll('.gallery-item');
+        let count = 0;
+        galleryItems.forEach((item, index) => {
+            if (!item.classList.contains('hidden')) {
+                if (count < visibleItems) {
+                    item.style.display = 'block';
+                    count++;
+                } else {
+                    item.style.display = 'none';
                 }
             }
-        }
-        
-        // Initialize the gallery
-        filterGallery('all');
+        });
     }
+
+    function resetLoadMore() {
+        visibleItems = 12;
+        if (loadMoreBtn) {
+            loadMoreBtn.style.display = 'block';
+        }
+        showMoreItems();
+    }
+
+    function getTotalFilteredItems() {
+        galleryItems = document.querySelectorAll('.gallery-item');
+        if (currentFilter === 'all') {
+            return galleryItems.length;
+        } else {
+            return document.querySelectorAll(`[data-category="${currentFilter}"]`).length;
+        }
+    }
+
+    function updateCounter() {
+        if (currentCount) {
+            const totalFiltered = getTotalFilteredItems();
+            const showing = Math.min(visibleItems, totalFiltered);
+            currentCount.textContent = showing;
+            const totalCountElement = document.getElementById('totalCount');
+            if (totalCountElement) {
+                totalCountElement.textContent = totalFiltered;
+            }
+        }
+    }
+
+    // Load gallery on page load
+    loadGallery();
 });

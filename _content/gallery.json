@@ -1,0 +1,94 @@
+{
+  "items": [
+    {
+      "title": "Bridal Design 1",
+      "image": "photos/bridal1.jpg",
+      "category": "bridal",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 2",
+      "image": "photos/bridal2.jpg",
+      "category": "arabic",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 3",
+      "image": "photos/bridal3.jpg",
+      "category": "mandala",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 4",
+      "image": "photos/bridal4.jpg",
+      "category": "floral",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 5",
+      "image": "photos/bridal5.jpg",
+      "category": "traditional",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 6",
+      "image": "photos/bridal6.jpg",
+      "category": "modern",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 7",
+      "image": "photos/bridal7.jpg",
+      "category": "bridal",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Bridal Design 8",
+      "image": "photos/bridal8.jpg",
+      "category": "arabic",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Modern Design 1",
+      "image": "photos/modern1.jpg",
+      "category": "mandala",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Modern Design 2",
+      "image": "photos/modern2.jpg",
+      "category": "floral",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Modern Design 3",
+      "image": "photos/modern3.jpg",
+      "category": "traditional",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Modern Design 4",
+      "image": "photos/modern4.jpg",
+      "category": "modern",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Modern Design 5",
+      "image": "photos/modern5.jpg",
+      "category": "bridal",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Modern Design 6",
+      "image": "photos/modern6.jpg",
+      "category": "arabic",
+      "alt": "Beautiful bridal henna design"
+    },
+    {
+      "title": "Traditional Design",
+      "image": "photos/traditional1.jpg",
+      "category": "traditional",
+      "alt": "Beautiful bridal henna design"
+    }
+  ]
+}

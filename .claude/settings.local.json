@@ -4,7 +4,13 @@
       "Bash(mkdir:*)",
       "Bash(git init:*)",
       "Bash(git remote add:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd Decap CMS with Cloudinary integration for no-code content management\n\n- Added admin panel at /admin for easy content editing\n- Integrated Cloudinary for efficient media storage\n- Created content collections for gallery, hero, about, services, and contact\n- Added Netlify Identity for authentication\n- Site owner can now upload images and edit content without coding\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git pull:*)",
+      "Bash(git push:*)",
+      "Bash(git checkout:*)",
+      "Bash(git commit:*)",
+      "Bash(git config:*)"
     ],
     "deny": [],
     "ask": []

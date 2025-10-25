@@ -15,23 +15,25 @@ media_library:
 
 # Content collections
 collections:
-  # Gallery Images Collection
-  - name: "gallery"
-    label: "Gallery Images"
-    folder: "_gallery"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Image", name: "image", widget: "image", media_library: {config: {multiple: false}}}
-      - {label: "Category", name: "category", widget: "select", options: ["bridal", "arabic", "traditional", "modern", "mandala", "floral"]}
-      - {label: "Alt Text", name: "alt", widget: "string", default: "Beautiful henna design"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-
   # Site Content Collection
   - name: "content"
     label: "Site Content"
     files:
+      # Gallery Images
+      - label: "Gallery Images"
+        name: "gallery"
+        file: "_content/gallery.json"
+        fields:
+          - label: "Gallery Items"
+            name: "items"
+            widget: "list"
+            summary: '{{fields.title}} - {{fields.category}}'
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Image", name: "image", widget: "image", media_library: {config: {multiple: false}}}
+              - {label: "Category", name: "category", widget: "select", options: ["bridal", "arabic", "traditional", "modern", "mandala", "floral"]}
+              - {label: "Alt Text", name: "alt", widget: "string", default: "Beautiful henna design"}
+
       # Hero Section
       - label: "Hero Section"
         name: "hero"
