@@ -89,12 +89,6 @@
       "image": "photos/traditional1.jpg",
       "category": "traditional",
       "alt": "Beautiful bridal henna design"
-    },
-    {
-      "alt": "Beautiful henna design",
-      "title": "Test",
-      "image": "https://res.cloudinary.com/dcdvcdpeg/image/upload/v1761360945/article-switzerland-bern-streets_bv1jds.jpg",
-      "category": "modern"
     }
   ]
 }
